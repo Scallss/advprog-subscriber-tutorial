@@ -9,3 +9,8 @@ AMQP (Advanced Message Queuing Protocol) adalah protokol standar terbuka untuk p
 ## Maksud dari `guest:guest@localhost:5672`
 
 `guest` pertama dan kedua secara berturut-turut adalah Username dan Password untuk mengakses RabbitMQ, sedangkan `localhost` pada `localhost:5672` adalah hostname server yang digunakan (pada kasus ini adalah perangkat lokal sendiri), dan `5672` adalah port default yang digunakan untuk membuat koneksi.
+
+## Simulation slow subscriber
+![Slow Subscriber](assets/slow_subscriber.png)
+
+Terjadi akumulasi 20 pesan dalam antrian (queue) yang terlihat pada gambar, menunjukkan adanya disparitas kecepatan pemrosesan dalam sistem. Faktor utama penyebabnya adalah waktu pemrosesan subscriber yang secara signifikan lebih lambat dibandingkan laju pengiriman publisher. Simulasi ini memberikan fenomena yang sering terjadi pada lapangan yang mana terdapat indikasi ketidaksesuaian antara kapasitas produksi dan konsumsi dalam arsitektur message broker yang ada.
